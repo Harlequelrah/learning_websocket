@@ -59,7 +59,21 @@ ou
 
 **`Captures :`**
 
-![Image 1](screenshots/image_1.png)
+![Visuel d'échanges simple ](screenshots/image_1.png)]
+
+![Visuel d'échanges avec username](screenshots/image_2.png)
+
+![Visuel de discussion entre deux utilisateurs](screenshots/image_3.png)
+
+
+![Visuel d'entrée dans une  Chat Room](screenshots/image_4.png)
+
+
+![Visuel 1 de discussion entre deux utilisateurs d'une chat room ](screenshots/image_5.png)
+
+
+![Visuel 1 de discussion entre deux utilisateurs d'une chat room ](screenshots/image_6.png)
+
 
 # Contact ou Support
 

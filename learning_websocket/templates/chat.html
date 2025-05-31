@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat WebSocket</title>
+</head>
+<body>
+    <h2>Chat Room</h2>
+    <input type="text" id="room" placeholder="Nom de la salle" />
+    <input type="text" id="sub" placeholder="Ton pseudo" />
+    <button onclick="connect()">Rejoindre</button>
+    <br><br>
+    <div id="chat"></div>
+    <input type="text" id="messageInput" placeholder="Ton message..." />
+    <button onclick="sendMessage()">Envoyer</button>
+
+    <script>
+        let socket = null;
+
+        function connect() {
+            const room = document.getElementById("room").value;
+            const sub = document.getElementById("sub").value;
+            socket = new WebSocket(`ws://localhost:8000/ws/room/${room}?sub=${sub}`);
+
+            socket.onmessage = function(event) {
+                const chat = document.getElementById("chat");
+                chat.innerHTML += `<p>${event.data}</p>`;
+            };
+
+            socket.onclose = function() {
+                alert("Déconnecté du serveur.");
+            };
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("messageInput");
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(input.value);
+                input.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
